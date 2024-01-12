@@ -2,9 +2,18 @@ const express = require('express')
 require("dotenv").config()
 const workoutRoutes = require("./routes/workout.js")
 const mongoose = require("mongoose")
+const cors = require('cors')
 
 // Tao app
 const app = express()
+
+app.use(cors(
+    {
+        origin: ["https://workout-management.vercel.app"],
+        methods: ["POST", "GET", "DELETE", "PATCH"],
+        credentials: true
+    }
+))
 
 const port = process.env.PORT
 
