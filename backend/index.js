@@ -7,8 +7,13 @@ const cors = require('cors')
 // Tao app
 const app = express()
 
-app.use(cors())
-
+app.use(cors(
+    {
+        origin: ["https://workout-management.vercel.app"],
+        methods: ["POST", "GET", "DELETE", "PATCH"],
+        credentials: true
+    }
+))
 
 const port = process.env.PORT
 
